@@ -1,0 +1,91 @@
+services:
+  Evrinoma\HistoryBundle\Controller\HistoryApiController:
+    alias: evrinoma.history.api.controller
+    public: true
+
+  evrinoma.history.api.controller:
+    class: Evrinoma\HistoryBundle\Controller\HistoryApiController
+    arguments:
+      - '@jms_serializer'
+      - '@request_stack'
+      - '@evrinoma.dto.factory'
+      - '@evrinoma.history.facade'
+    autowire: true
+
+  evrinoma.history.facade:
+    class: Evrinoma\HistoryBundle\Facade\History\Facade
+    arguments:
+      - '@evrinoma.history.command.manager'
+      - '@evrinoma.history.query.manager'
+      - '@evrinoma.history.adaptor'
+    autowire: true
+
+  Evrinoma\HistoryBundle\Facade\History\FacadeInterface:
+    alias: evrinoma.history.facade
+
+  evrinoma.history.factory:
+    class: Evrinoma\HistoryBundle\Factory\History\Factory
+    public: true
+    arguments:
+
+  evrinoma.history.orm.repository:
+    class: Evrinoma\HistoryBundle\Repository\Orm\History\HistoryRepository
+    public: true
+    arguments:
+
+  evrinoma.history.command.manager:
+    class: Evrinoma\HistoryBundle\Manager\CommandManager
+    arguments:
+      - '@evrinoma.history.validator'
+      - '@evrinoma.history.repository'
+      - '@evrinoma.history.factory'
+      - '@evrinoma.history.command.mediator'
+
+  Evrinoma\HistoryBundle\Manager\CommandManagerInterface:
+    alias: evrinoma.history.command.manager
+
+  evrinoma.history.query.manager:
+    class: Evrinoma\HistoryBundle\Manager\QueryManager
+    arguments:
+      - '@evrinoma.history.repository'
+
+  Evrinoma\HistoryBundle\Manager\QueryManagerInterface:
+    alias: evrinoma.history.query.manager
+    
+  evrinoma.history.validator:
+    class: Evrinoma\HistoryBundle\Validator\HistoryValidator
+    public: true
+    arguments:
+
+  Evrinoma\HistoryBundle\Validator\HistoryValidator:
+    alias: evrinoma.history.validator
+
+  evrinoma.history.query.orm.mediator:
+    class: Evrinoma\HistoryBundle\Mediator\Orm\QueryMediator
+    public: true
+    arguments:
+
+  Evrinoma\HistoryBundle\Mediator\Orm\QueryMediator:
+    alias: evrinoma.history.query.orm.mediator
+
+  evrinoma.history.command.mediator:
+    class: Evrinoma\HistoryBundle\Mediator\CommandMediator
+    public: true
+    arguments:
+
+  Evrinoma\HistoryBundle\Mediator\CommandMediator:
+    alias: evrinoma.history.command.mediator
+
+  Evrinoma\HistoryBundle\Mediator\CommandMediatorInterface:
+    alias: evrinoma.history.command.mediator
+
+  evrinoma.history.pre.validator:
+    class: Evrinoma\HistoryBundle\PreValidator\DtoPreValidator
+    public: true
+    arguments:
+
+  Evrinoma\HistoryBundle\PreValidator\DtoPreValidator:
+    alias: evrinoma.history.pre.validator
+
+  Evrinoma\HistoryBundle\PreValidator\DtoPreValidatorInterface:
+    alias: evrinoma.history.pre.validator

@@ -1,0 +1,9 @@
+services:
+  evrinoma.history.constraint.property.body:
+    class: Evrinoma\HistoryBundle\Constraint\Property\Body
+
+  evrinoma.history.constraint.property.title:
+    class: Evrinoma\HistoryBundle\Constraint\Property\Title
+
+  evrinoma.history.constraint.property.active:
+    class: Evrinoma\HistoryBundle\Constraint\Property\Active

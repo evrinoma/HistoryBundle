@@ -1,0 +1,30 @@
+Evrinoma\HistoryBundle\Model\History\AbstractHistory:
+  exclusion_policy: ALL
+  properties:
+    id:
+      groups: [ API_GET_HISTORY, API_POST_HISTORY, API_PUT_HISTORY, ]
+      expose: true
+    createdAt:
+      type: DateTimeImmutable<'Y-m-d H:i'>
+      groups: [ API_GET_HISTORY, API_POST_HISTORY, API_PUT_HISTORY, ]
+      expose: true
+    updatedAt:
+      type: DateTimeImmutable<'Y-m-d H:i'>
+      groups: [ API_GET_HISTORY, API_POST_HISTORY, API_PUT_HISTORY, ]
+      expose: true
+    active:
+      groups: [ API_GET_HISTORY, API_POST_HISTORY, API_PUT_HISTORY, ]
+      expose: true
+    title:
+      groups: [ API_GET_HISTORY, API_POST_HISTORY, API_PUT_HISTORY, ]
+      expose: true
+    body:
+      groups: [ API_GET_HISTORY, API_POST_HISTORY, API_PUT_HISTORY, ]
+      expose: true
+    position:
+      groups: [ API_GET_HISTORY, API_POST_HISTORY, API_PUT_HISTORY, ]
+      expose: true
+    start:
+      type: DateTimeImmutable<'Y-m-d H:i:s'>
+      groups: [ API_GET_HISTORY, API_POST_HISTORY, API_PUT_HISTORY, ]
+      expose: true

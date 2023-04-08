@@ -1,0 +1,6 @@
+jms_serializer:
+  metadata:
+    directories:
+      HistoryBundle:
+        namespace_prefix: "Evrinoma\\HistoryBundle"
+        path: '%kernel.root_dir%/Resources/config/serializer/HistoryBundle'

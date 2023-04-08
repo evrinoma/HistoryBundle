@@ -1,0 +1,9 @@
+services:
+  evrinoma.history.test.functional.action.history:
+    class: Evrinoma\HistoryBundle\Tests\Functional\Action\BaseHistory
+    public: true
+    arguments:
+
+  Evrinoma\HistoryBundle\Tests\Functional\Action\BaseHistory:
+    alias: evrinoma.history.test.functional.action.history
+    public: true

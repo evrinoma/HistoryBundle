@@ -1,0 +1,5 @@
+services:
+  evrinoma.history.fixtures.history:
+    class: Evrinoma\HistoryBundle\Fixtures\HistoryFixtures
+    tags:
+      - { name: doctrine.fixture.orm }

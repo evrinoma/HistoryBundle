@@ -1,0 +1,3 @@
+historyapi:
+  resource: "@EvrinomaHistoryBundle/Resources/config/routing/api.yml"
+  prefix: evrinoma

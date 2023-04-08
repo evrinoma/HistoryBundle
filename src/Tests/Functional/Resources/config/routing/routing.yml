@@ -1,0 +1,2 @@
+history:
+    resource: "@EvrinomaHistoryBundle/Resources/config/routes.yml"
