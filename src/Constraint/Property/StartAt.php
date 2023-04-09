@@ -29,6 +29,6 @@ class StartAt implements ConstraintInterface
 
     public function getPropertyName(): string
     {
-        return 'start_at';
+        return 'startAt';
     }
 }

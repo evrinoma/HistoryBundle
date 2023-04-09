@@ -11,11 +11,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Evrinoma\HistoryBundle\Dto\Preserve;
+namespace Evrinoma\HistoryBundle\Model;
 
-use Evrinoma\DtoCommon\ValueObject\Mutable\FinishAtInterface;
-use Evrinoma\DtoCommon\ValueObject\Mutable\StartAtInterface;
-
-interface RangeApiDtoInterface extends StartAtInterface, FinishAtInterface
+interface FormatInterface
 {
+    public const START_AT_FORMAT = 'Y-m-d H:i:s';
+    public const FINISH_AT_FORMAT = 'Y-m-d H:i:s';
 }

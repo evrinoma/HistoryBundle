@@ -14,11 +14,24 @@ declare(strict_types=1);
 namespace Evrinoma\HistoryBundle\Tests\Functional\Helper;
 
 use Evrinoma\HistoryBundle\Dto\HistoryApiDtoInterface;
+use Evrinoma\HistoryBundle\Dto\RangeApiDtoInterface;
+use Evrinoma\HistoryBundle\Tests\Functional\ValueObject\History\FinishAt;
+use Evrinoma\HistoryBundle\Tests\Functional\ValueObject\History\StartAt;
 use Evrinoma\UtilsBundle\Model\Rest\PayloadModel;
 use PHPUnit\Framework\Assert;
 
 trait BaseHistoryTestTrait
 {
+    protected static function defaultRangeData(): array
+    {
+        return [
+            HistoryApiDtoInterface::RANGE => [
+                RangeApiDtoInterface::START_AT => StartAt::value(),
+                RangeApiDtoInterface::FINISH_AT => FinishAt::value(),
+            ],
+        ];
+    }
+
     protected function assertGet(string $id): array
     {
         $find = $this->get($id);

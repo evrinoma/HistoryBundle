@@ -23,7 +23,7 @@ use Evrinoma\TestUtilsBundle\Fixtures\AbstractFixture;
 class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, OrderedFixtureInterface
 {
     protected static array $data = [
-        [
+        '0' => [
             HistoryApiDtoInterface::TITLE => 'ite',
             HistoryApiDtoInterface::BODY => 'http://ite',
             HistoryApiDtoInterface::ACTIVE => 'a',
@@ -31,7 +31,7 @@ class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, 
             HistoryApiDtoInterface::START_AT => '2023-03-31 11:21:50',
             'created_at' => '2008-10-23 10:21:50',
         ],
-        [
+        '1' => [
             HistoryApiDtoInterface::TITLE => 'kzkt',
             HistoryApiDtoInterface::BODY => 'http://kzkt',
             HistoryApiDtoInterface::ACTIVE => 'a',
@@ -39,7 +39,7 @@ class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, 
             HistoryApiDtoInterface::START_AT => '2023-04-01 12:21:50',
             'created_at' => '2015-10-23 10:21:50',
         ],
-        [
+        '2' => [
             HistoryApiDtoInterface::TITLE => 'c2m',
             HistoryApiDtoInterface::BODY => 'http://c2m',
             HistoryApiDtoInterface::ACTIVE => 'a',
@@ -47,7 +47,7 @@ class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, 
             HistoryApiDtoInterface::START_AT => '2023-04-02 13:21:50',
             'created_at' => '2020-10-23 10:21:50',
         ],
-        [
+        '3' => [
             HistoryApiDtoInterface::TITLE => 'kzkt2',
             HistoryApiDtoInterface::BODY => 'http://kzkt2',
             HistoryApiDtoInterface::ACTIVE => 'd',
@@ -55,7 +55,7 @@ class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, 
             HistoryApiDtoInterface::START_AT => '2023-04-03 14:21:50',
             'created_at' => '2015-10-23 10:21:50',
             ],
-        [
+        '4' => [
             HistoryApiDtoInterface::TITLE => 'nvr',
             HistoryApiDtoInterface::BODY => 'http://nvr',
             HistoryApiDtoInterface::ACTIVE => 'b',
@@ -63,7 +63,7 @@ class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, 
             HistoryApiDtoInterface::START_AT => '2023-04-04 15:21:50',
             'created_at' => '2010-10-23 10:21:50',
         ],
-        [
+        '5' => [
             HistoryApiDtoInterface::TITLE => 'nvr2',
             HistoryApiDtoInterface::BODY => 'http://nvr2',
             HistoryApiDtoInterface::ACTIVE => 'd',
@@ -71,7 +71,7 @@ class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, 
             HistoryApiDtoInterface::START_AT => '2023-04-05 16:21:50',
             'created_at' => '2010-10-23 10:21:50',
             ],
-        [
+        '6' => [
             HistoryApiDtoInterface::TITLE => 'nvr3',
             HistoryApiDtoInterface::BODY => 'http://nvr3',
             HistoryApiDtoInterface::ACTIVE => 'd',

@@ -15,9 +15,11 @@ namespace Evrinoma\HistoryBundle\Tests\Functional\Action;
 
 use Evrinoma\HistoryBundle\Dto\HistoryApiDto;
 use Evrinoma\HistoryBundle\Dto\HistoryApiDtoInterface;
+use Evrinoma\HistoryBundle\Dto\RangeApiDtoInterface;
 use Evrinoma\HistoryBundle\Tests\Functional\Helper\BaseHistoryTestTrait;
 use Evrinoma\HistoryBundle\Tests\Functional\ValueObject\History\Active;
 use Evrinoma\HistoryBundle\Tests\Functional\ValueObject\History\Body;
+use Evrinoma\HistoryBundle\Tests\Functional\ValueObject\History\FinishAt;
 use Evrinoma\HistoryBundle\Tests\Functional\ValueObject\History\Id;
 use Evrinoma\HistoryBundle\Tests\Functional\ValueObject\History\Position;
 use Evrinoma\HistoryBundle\Tests\Functional\ValueObject\History\StartAt;
@@ -82,6 +84,46 @@ class BaseHistory extends AbstractServiceTest implements BaseHistoryTestInterfac
 
     public function actionCriteria(): void
     {
+        $range = static::defaultRangeData();
+        $data = array_merge(
+            [
+                HistoryApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+                HistoryApiDtoInterface::ACTIVE => Active::nullable(),
+                HistoryApiDtoInterface::ID => Id::nullable(),
+            ],
+            $range);
+        $find = $this->criteria($data);
+        $this->testResponseStatusOK();
+        Assert::assertCount(7, $find[PayloadModel::PAYLOAD]);
+
+        $range = static::defaultRangeData();
+        unset($range[HistoryApiDtoInterface::RANGE][RangeApiDtoInterface::FINISH_AT]);
+        $range[HistoryApiDtoInterface::RANGE][RangeApiDtoInterface::START_AT] = StartAt::default();
+        $data = array_merge(
+            [
+                HistoryApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+                HistoryApiDtoInterface::ACTIVE => Active::nullable(),
+                HistoryApiDtoInterface::ID => Id::nullable(),
+            ],
+            $range);
+        $find = $this->criteria($data);
+        $this->testResponseStatusOK();
+        Assert::assertCount(3, $find[PayloadModel::PAYLOAD]);
+
+        $range = static::defaultRangeData();
+        unset($range[HistoryApiDtoInterface::RANGE][RangeApiDtoInterface::START_AT]);
+        $range[HistoryApiDtoInterface::RANGE][RangeApiDtoInterface::FINISH_AT] = FinishAt::default();
+        $data = array_merge(
+            [
+                HistoryApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+                HistoryApiDtoInterface::ACTIVE => Active::nullable(),
+                HistoryApiDtoInterface::ID => Id::nullable(),
+            ],
+            $range);
+        $find = $this->criteria($data);
+        $this->testResponseStatusOK();
+        Assert::assertCount(5, $find[PayloadModel::PAYLOAD]);
+
         $find = $this->criteria([
             HistoryApiDtoInterface::DTO_CLASS => static::getDtoClass(),
             HistoryApiDtoInterface::ACTIVE => Active::value(),
@@ -172,7 +214,7 @@ class BaseHistory extends AbstractServiceTest implements BaseHistoryTestInterfac
             HistoryApiDtoInterface::BODY => Body::wrong(),
             HistoryApiDtoInterface::TITLE => Title::wrong(),
             HistoryApiDtoInterface::POSITION => Position::wrong(),
-            HistoryApiDtoInterface::START_AT => StartAt::wrong(),
+            HistoryApiDtoInterface::START_AT => StartAt::value(),
         ]));
         $this->testResponseStatusNotFound();
     }

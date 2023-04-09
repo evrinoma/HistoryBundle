@@ -16,6 +16,7 @@ namespace Evrinoma\HistoryBundle\Mediator\Orm;
 use Evrinoma\DtoBundle\Dto\DtoInterface;
 use Evrinoma\HistoryBundle\Dto\HistoryApiDtoInterface;
 use Evrinoma\HistoryBundle\Mediator\QueryMediatorInterface;
+use Evrinoma\HistoryBundle\Model\FormatInterface;
 use Evrinoma\HistoryBundle\Repository\AliasInterface;
 use Evrinoma\UtilsBundle\Mediator\AbstractQueryMediator;
 use Evrinoma\UtilsBundle\Mediator\Orm\QueryMediatorTrait;
@@ -71,13 +72,13 @@ class QueryMediator extends AbstractQueryMediator implements QueryMediatorInterf
         if ($dto->hasRangeApiDto()) {
             $dtoRange = $dto->getRangeApiDto();
             if ($dtoRange->hasStartAt()) {
-                $startAt = (new \DateTimeImmutable($dto->getStartAt()))->format('Y-m-d H:i:s');
+                $startAt = (new \DateTimeImmutable($dtoRange->getStartAt()))->format(FormatInterface::START_AT_FORMAT);
                 $builder
                     ->andWhere($alias.'.startAt >= :startAt')
                     ->setParameter('startAt', $startAt);
             }
             if ($dtoRange->hasFinishAt()) {
-                $finishAt = (new \DateTimeImmutable($dto->getStartAt()))->format('Y-m-d H:i:s');
+                $finishAt = (new \DateTimeImmutable($dtoRange->getFinishAt()))->format(FormatInterface::FINISH_AT_FORMAT);
                 $builder
                     ->andWhere($alias.'.startAt <= :finishAt')
                     ->setParameter('finishAt', $finishAt);
