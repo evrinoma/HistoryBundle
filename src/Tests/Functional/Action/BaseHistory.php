@@ -88,8 +88,8 @@ class BaseHistory extends AbstractServiceTest implements BaseHistoryTestInterfac
         $data = array_merge(
             [
                 HistoryApiDtoInterface::DTO_CLASS => static::getDtoClass(),
-                HistoryApiDtoInterface::ACTIVE => Active::nullable(),
-                HistoryApiDtoInterface::ID => Id::nullable(),
+                HistoryApiDtoInterface::ACTIVE => Active::blank(),
+                HistoryApiDtoInterface::ID => Id::blank(),
             ],
             $range);
         $find = $this->criteria($data);
@@ -102,8 +102,8 @@ class BaseHistory extends AbstractServiceTest implements BaseHistoryTestInterfac
         $data = array_merge(
             [
                 HistoryApiDtoInterface::DTO_CLASS => static::getDtoClass(),
-                HistoryApiDtoInterface::ACTIVE => Active::nullable(),
-                HistoryApiDtoInterface::ID => Id::nullable(),
+                HistoryApiDtoInterface::ACTIVE => Active::blank(),
+                HistoryApiDtoInterface::ID => Id::blank(),
             ],
             $range);
         $find = $this->criteria($data);
@@ -116,8 +116,8 @@ class BaseHistory extends AbstractServiceTest implements BaseHistoryTestInterfac
         $data = array_merge(
             [
                 HistoryApiDtoInterface::DTO_CLASS => static::getDtoClass(),
-                HistoryApiDtoInterface::ACTIVE => Active::nullable(),
-                HistoryApiDtoInterface::ID => Id::nullable(),
+                HistoryApiDtoInterface::ACTIVE => Active::blank(),
+                HistoryApiDtoInterface::ID => Id::blank(),
             ],
             $range);
         $find = $this->criteria($data);
