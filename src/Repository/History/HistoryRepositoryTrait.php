@@ -68,13 +68,13 @@ trait HistoryRepositoryTrait
 
         $this->mediator->createQuery($dto, $builder);
 
-        $historys = $this->mediator->getResult($dto, $builder);
+        $histories = $this->mediator->getResult($dto, $builder);
 
-        if (0 === \count($historys)) {
+        if (0 === \count($histories)) {
             throw new HistoryNotFoundException('Cannot find history by findByCriteria');
         }
 
-        return $historys;
+        return $histories;
     }
 
     /**

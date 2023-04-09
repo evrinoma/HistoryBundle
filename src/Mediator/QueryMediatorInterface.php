@@ -24,16 +24,16 @@ interface QueryMediatorInterface
     public function alias(): string;
 
     /**
-     * @param HistoryApiDtoInterface   $dto
-     * @param QueryBuilderInterface $builder
+     * @param HistoryApiDtoInterface $dto
+     * @param QueryBuilderInterface  $builder
      *
      * @return mixed
      */
     public function createQuery(HistoryApiDtoInterface $dto, QueryBuilderInterface $builder): void;
 
     /**
-     * @param HistoryApiDtoInterface   $dto
-     * @param QueryBuilderInterface $builder
+     * @param HistoryApiDtoInterface $dto
+     * @param QueryBuilderInterface  $builder
      *
      * @return array
      */

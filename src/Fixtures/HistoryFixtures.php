@@ -28,7 +28,7 @@ class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, 
             HistoryApiDtoInterface::BODY => 'http://ite',
             HistoryApiDtoInterface::ACTIVE => 'a',
             HistoryApiDtoInterface::POSITION => 1,
-            HistoryApiDtoInterface::START => '2023-03-31 11:21:50',
+            HistoryApiDtoInterface::START_AT => '2023-03-31 11:21:50',
             'created_at' => '2008-10-23 10:21:50',
         ],
         [
@@ -36,7 +36,7 @@ class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, 
             HistoryApiDtoInterface::BODY => 'http://kzkt',
             HistoryApiDtoInterface::ACTIVE => 'a',
             HistoryApiDtoInterface::POSITION => 2,
-            HistoryApiDtoInterface::START => '2023-04-01 12:21:50',
+            HistoryApiDtoInterface::START_AT => '2023-04-01 12:21:50',
             'created_at' => '2015-10-23 10:21:50',
         ],
         [
@@ -44,7 +44,7 @@ class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, 
             HistoryApiDtoInterface::BODY => 'http://c2m',
             HistoryApiDtoInterface::ACTIVE => 'a',
             HistoryApiDtoInterface::POSITION => 3,
-            HistoryApiDtoInterface::START => '2023-04-02 13:21:50',
+            HistoryApiDtoInterface::START_AT => '2023-04-02 13:21:50',
             'created_at' => '2020-10-23 10:21:50',
         ],
         [
@@ -52,7 +52,7 @@ class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, 
             HistoryApiDtoInterface::BODY => 'http://kzkt2',
             HistoryApiDtoInterface::ACTIVE => 'd',
             HistoryApiDtoInterface::POSITION => 1,
-            HistoryApiDtoInterface::START => '2023-04-03 14:21:50',
+            HistoryApiDtoInterface::START_AT => '2023-04-03 14:21:50',
             'created_at' => '2015-10-23 10:21:50',
             ],
         [
@@ -60,7 +60,7 @@ class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, 
             HistoryApiDtoInterface::BODY => 'http://nvr',
             HistoryApiDtoInterface::ACTIVE => 'b',
             HistoryApiDtoInterface::POSITION => 2,
-            HistoryApiDtoInterface::START => '2023-04-04 15:21:50',
+            HistoryApiDtoInterface::START_AT => '2023-04-04 15:21:50',
             'created_at' => '2010-10-23 10:21:50',
         ],
         [
@@ -68,7 +68,7 @@ class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, 
             HistoryApiDtoInterface::BODY => 'http://nvr2',
             HistoryApiDtoInterface::ACTIVE => 'd',
             HistoryApiDtoInterface::POSITION => 3,
-            HistoryApiDtoInterface::START => '2023-04-05 16:21:50',
+            HistoryApiDtoInterface::START_AT => '2023-04-05 16:21:50',
             'created_at' => '2010-10-23 10:21:50',
             ],
         [
@@ -76,7 +76,7 @@ class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, 
             HistoryApiDtoInterface::BODY => 'http://nvr3',
             HistoryApiDtoInterface::ACTIVE => 'd',
             HistoryApiDtoInterface::POSITION => 1,
-            HistoryApiDtoInterface::START => '2023-04-06 17:21:50',
+            HistoryApiDtoInterface::START_AT => '2023-04-06 17:21:50',
             'created_at' => '2011-10-23 10:21:50',
         ],
     ];
@@ -98,7 +98,7 @@ class HistoryFixtures extends AbstractFixture implements FixtureGroupInterface, 
         foreach ($this->getData() as $record) {
             $entity = $this->getEntity();
             $entity
-                ->setStart(new \DateTimeImmutable($record[HistoryApiDtoInterface::START]))
+                ->setStartAt(new \DateTimeImmutable($record[HistoryApiDtoInterface::START_AT]))
                 ->setTitle($record[HistoryApiDtoInterface::TITLE])
                 ->setBody($record[HistoryApiDtoInterface::BODY])
                 ->setPosition($record[HistoryApiDtoInterface::POSITION])

@@ -121,6 +121,7 @@ final class HistoryApiController extends AbstractWrappedApiController implements
      *                     "title": "Instagram",
      *                     "body": "http://www.instagram.com/intertechelectro",
      *                     "position": "1",
+     *                     "start_at": "2023-04-10 10:30:31",
      *                 },
      *                 type="object",
      *                 @OA\Property(property="class", type="string", default="Evrinoma\HistoryBundle\Dto\HistoryApiDto"),
@@ -128,6 +129,7 @@ final class HistoryApiController extends AbstractWrappedApiController implements
      *                 @OA\Property(property="title", type="string"),
      *                 @OA\Property(property="body", type="string"),
      *                 @OA\Property(property="active", type="string"),
+     *                 @OA\Property(property="start_at", type="date-time"),
      *                 @OA\Property(property="position", type="int"),
      *             )
      *         )
@@ -251,7 +253,27 @@ final class HistoryApiController extends AbstractWrappedApiController implements
      *         @OA\Schema(
      *             type="string",
      *         )
-     *     )
+     *     ),
+     *     @OA\Parameter(
+     *         description="range[start_at]",
+     *         in="query",
+     *         name="range[start_at]",
+     *         @OA\Schema(
+     *             type="date-time",
+     *             example="2022-04-10 10:30:31",
+     *             pattern="(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         description="range[finish_at]",
+     *         in="query",
+     *         name="range[finish_at]",
+     *         @OA\Schema(
+     *             type="date-time",
+     *             example="2028-04-10 10:30:31",
+     *             pattern="(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})"
+     *         )
+     *     ),
      * )
      *
      * @OA\Response(response=200, description="Return history")

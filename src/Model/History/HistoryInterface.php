@@ -18,9 +18,9 @@ use Evrinoma\UtilsBundle\Entity\BodyInterface;
 use Evrinoma\UtilsBundle\Entity\CreateUpdateAtInterface;
 use Evrinoma\UtilsBundle\Entity\IdInterface;
 use Evrinoma\UtilsBundle\Entity\PositionInterface;
-use Evrinoma\UtilsBundle\Entity\StartInterface;
+use Evrinoma\UtilsBundle\Entity\StartAtInterface;
 use Evrinoma\UtilsBundle\Entity\TitleInterface;
 
-interface HistoryInterface extends ActiveInterface, CreateUpdateAtInterface, IdInterface, PositionInterface, StartInterface, BodyInterface, TitleInterface
+interface HistoryInterface extends ActiveInterface, CreateUpdateAtInterface, IdInterface, PositionInterface, StartAtInterface, BodyInterface, TitleInterface
 {
 }

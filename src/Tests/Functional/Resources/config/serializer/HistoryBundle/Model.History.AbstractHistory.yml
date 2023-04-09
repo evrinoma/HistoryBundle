@@ -24,7 +24,7 @@ Evrinoma\HistoryBundle\Model\History\AbstractHistory:
     position:
       groups: [ API_GET_HISTORY, API_POST_HISTORY, API_PUT_HISTORY, ]
       expose: true
-    start:
+    startAt:
       type: DateTimeImmutable<'Y-m-d H:i:s'>
       groups: [ API_GET_HISTORY, API_POST_HISTORY, API_PUT_HISTORY, ]
       expose: true

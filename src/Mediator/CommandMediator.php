@@ -28,7 +28,7 @@ class CommandMediator extends AbstractCommandMediator implements CommandMediator
             ->setBody($dto->getBody())
             ->setPosition($dto->getPosition())
             ->setUpdatedAt(new \DateTimeImmutable())
-            ->setStart(new \DateTimeImmutable($dto->getStart()))
+            ->setStartAt((new \DateTimeImmutable($dto->getStartAt()))->format('Y-m-d H:i:s'))
             ->setActive($dto->getActive());
 
         return $entity;
@@ -49,7 +49,7 @@ class CommandMediator extends AbstractCommandMediator implements CommandMediator
             ->setBody($dto->getBody())
             ->setPosition($dto->getPosition())
             ->setCreatedAt(new \DateTimeImmutable())
-            ->setStart(new \DateTimeImmutable($dto->getStart()))
+            ->setStartAt((new \DateTimeImmutable())->format('Y-m-d H:i:s'))
             ->setActiveToActive();
 
         return $entity;

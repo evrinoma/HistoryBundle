@@ -25,7 +25,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         $this
             ->checkTitle($dto)
             ->checkBody($dto)
-            ->checkStart($dto)
+            ->checkStartAt($dto)
             ->checkPosition($dto);
     }
 
@@ -36,7 +36,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
             ->checkTitle($dto)
             ->checkBody($dto)
             ->checkActive($dto)
-            ->checkStart($dto)
+            ->checkStartAt($dto)
             ->checkPosition($dto);
     }
 
@@ -45,11 +45,11 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         $this->checkId($dto);
     }
 
-    private function checkStart(DtoInterface $dto): self
+    private function checkStartAt(DtoInterface $dto): self
     {
         /** @var HistoryApiDtoInterface $dto */
-        if (!$dto->hasStart()) {
-            throw new HistoryInvalidException('The Dto has\'t start');
+        if (!$dto->hasStartAt()) {
+            throw new HistoryInvalidException('The Dto has\'t start at');
         }
 
         return $this;

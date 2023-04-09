@@ -18,9 +18,10 @@ use Evrinoma\DtoCommon\ValueObject\Immutable\ActiveInterface;
 use Evrinoma\DtoCommon\ValueObject\Immutable\BodyInterface;
 use Evrinoma\DtoCommon\ValueObject\Immutable\IdInterface;
 use Evrinoma\DtoCommon\ValueObject\Immutable\PositionInterface;
-use Evrinoma\DtoCommon\ValueObject\Immutable\StartInterface;
+use Evrinoma\DtoCommon\ValueObject\Immutable\StartAtInterface;
 use Evrinoma\DtoCommon\ValueObject\Immutable\TitleInterface;
+use Evrinoma\HistoryBundle\DtoCommon\ValueObject\Immutable\RangeApiDtoInterface;
 
-interface HistoryApiDtoInterface extends DtoInterface, IdInterface, ActiveInterface, PositionInterface, TitleInterface, BodyInterface, StartInterface
+interface HistoryApiDtoInterface extends DtoInterface, IdInterface, ActiveInterface, PositionInterface, TitleInterface, BodyInterface, StartAtInterface, RangeApiDtoInterface
 {
 }

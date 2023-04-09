@@ -13,24 +13,34 @@ declare(strict_types=1);
 
 namespace Evrinoma\HistoryBundle\Dto;
 
+use Evrinoma\DtoBundle\Annotation\Dto;
 use Evrinoma\DtoBundle\Dto\AbstractDto;
 use Evrinoma\DtoBundle\Dto\DtoInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\ActiveTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\BodyTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\IdTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\PositionTrait;
-use Evrinoma\DtoCommon\ValueObject\Mutable\StartTrait;
+use Evrinoma\DtoCommon\ValueObject\Mutable\StartAtTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\TitleTrait;
+use Evrinoma\HistoryBundle\DtoCommon\ValueObject\Mutable\RangeApiDtoTrait;
 use Symfony\Component\HttpFoundation\Request;
 
 class HistoryApiDto extends AbstractDto implements HistoryApiDtoInterface
 {
     use ActiveTrait;
+    use BodyTrait;
     use IdTrait;
     use PositionTrait;
-    use BodyTrait;
+    use RangeApiDtoTrait;
+    use StartAtTrait;
     use TitleTrait;
-    use StartTrait;
+
+    /**
+     * @Dto(class="Evrinoma\HistoryBundle\Dto\RangeApiDto", generator="genRequestRangeApiDto")
+     *
+     * @var RangeApiDtoInterface|null
+     */
+    protected ?RangeApiDtoInterface $rangeApiDto = null;
 
     public function toDto(Request $request): DtoInterface
     {
@@ -40,7 +50,7 @@ class HistoryApiDto extends AbstractDto implements HistoryApiDtoInterface
             $active = $request->get(HistoryApiDtoInterface::ACTIVE);
             $id = $request->get(HistoryApiDtoInterface::ID);
             $position = $request->get(HistoryApiDtoInterface::POSITION);
-            $start = $request->get(HistoryApiDtoInterface::START);
+            $startAt = $request->get(HistoryApiDtoInterface::START_AT);
             $title = $request->get(HistoryApiDtoInterface::TITLE);
             $body = $request->get(HistoryApiDtoInterface::BODY);
 
@@ -59,8 +69,8 @@ class HistoryApiDto extends AbstractDto implements HistoryApiDtoInterface
             if ($body) {
                 $this->setBody($body);
             }
-            if ($start) {
-                $this->setStart($start);
+            if ($startAt) {
+                $this->setStartAt($startAt);
             }
         }
 

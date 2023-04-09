@@ -19,7 +19,7 @@ use Evrinoma\UtilsBundle\Entity\BodyTrait;
 use Evrinoma\UtilsBundle\Entity\CreateUpdateAtTrait;
 use Evrinoma\UtilsBundle\Entity\IdTrait;
 use Evrinoma\UtilsBundle\Entity\PositionTrait;
-use Evrinoma\UtilsBundle\Entity\StartTrait;
+use Evrinoma\UtilsBundle\Entity\StartAtTrait;
 use Evrinoma\UtilsBundle\Entity\TitleTrait;
 
 /**
@@ -28,10 +28,10 @@ use Evrinoma\UtilsBundle\Entity\TitleTrait;
 abstract class AbstractHistory implements HistoryInterface
 {
     use ActiveTrait;
+    use BodyTrait;
     use CreateUpdateAtTrait;
     use IdTrait;
     use PositionTrait;
-    use BodyTrait;
+    use StartAtTrait;
     use TitleTrait;
-    use StartTrait;
 }

@@ -15,7 +15,7 @@ namespace Evrinoma\HistoryBundle\Tests\Functional\ValueObject\History;
 
 use Evrinoma\TestUtilsBundle\ValueObject\Common\AbstractIdentity;
 
-class Start extends AbstractIdentity
+class StartAt extends AbstractIdentity
 {
     protected static string $value = '08-04-2023 13:13:13';
     protected static string $default = '07-04-2023';

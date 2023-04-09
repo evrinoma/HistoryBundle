@@ -67,5 +67,21 @@ class QueryMediator extends AbstractQueryMediator implements QueryMediatorInterf
                 ->andWhere($alias.'.active = :active')
                 ->setParameter('active', $dto->getActive());
         }
+
+        if ($dto->hasRangeApiDto()) {
+            $dtoRange = $dto->getRangeApiDto();
+            if ($dtoRange->hasStartAt()) {
+                $startAt = (new \DateTimeImmutable($dto->getStartAt()))->format('Y-m-d H:i:s');
+                $builder
+                    ->andWhere($alias.'.startAt >= :startAt')
+                    ->setParameter('startAt', $startAt);
+            }
+            if ($dtoRange->hasFinishAt()) {
+                $finishAt = (new \DateTimeImmutable($dto->getStartAt()))->format('Y-m-d H:i:s');
+                $builder
+                    ->andWhere($alias.'.startAt <= :finishAt')
+                    ->setParameter('finishAt', $finishAt);
+            }
+        }
     }
 }

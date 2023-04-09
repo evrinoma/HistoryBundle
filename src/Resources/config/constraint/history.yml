@@ -7,3 +7,6 @@ services:
 
   evrinoma.history.constraint.property.active:
     class: Evrinoma\HistoryBundle\Constraint\Property\Active
+
+  evrinoma.history.constraint.property.start_at:
+    class: Evrinoma\HistoryBundle\Constraint\Property\StartAt
