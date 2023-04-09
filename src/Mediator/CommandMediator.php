@@ -44,12 +44,15 @@ class CommandMediator extends AbstractCommandMediator implements CommandMediator
     public function onCreate(DtoInterface $dto, $entity): HistoryInterface
     {
         /* @var $dto HistoryApiDtoInterface */
+
+        $startAt = $dto->hasStartAt() ? new \DateTimeImmutable($dto->getStartAt()) : new \DateTimeImmutable();
+
         $entity
             ->setTitle($dto->getTitle())
             ->setBody($dto->getBody())
             ->setPosition($dto->getPosition())
             ->setCreatedAt(new \DateTimeImmutable())
-            ->setStartAt(new \DateTimeImmutable())
+            ->setStartAt($startAt)
             ->setActiveToActive();
 
         return $entity;
