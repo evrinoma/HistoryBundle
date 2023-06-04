@@ -16,4 +16,5 @@ namespace Evrinoma\HistoryBundle\Repository;
 interface AliasInterface
 {
     public const HISTORY = 'history';
+    public const HISTORIES = 'histories';
 }
