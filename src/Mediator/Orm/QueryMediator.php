@@ -80,7 +80,7 @@ class QueryMediator extends AbstractQueryMediator implements QueryMediatorInterf
             if ($dtoRange->hasFinishAt()) {
                 $finishAt = (new \DateTimeImmutable($dtoRange->getFinishAt()))->format(FormatInterface::FINISH_AT_FORMAT);
                 $builder
-                    ->andWhere($alias.'.finishAt <= :finishAt')
+                    ->andWhere($alias.'.startAt <= :finishAt')
                     ->setParameter('finishAt', $finishAt);
             }
         }
